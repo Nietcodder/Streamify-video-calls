@@ -46,7 +46,7 @@ export async function signup(req, res) {
       console.log("Error creating Stream user:", error);
     }
 
-    const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET_KEY, {
+    const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 
