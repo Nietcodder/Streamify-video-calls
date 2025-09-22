@@ -103,6 +103,11 @@ export function logout(req, res) {
 
 export async function onboard(req, res) {
   try {
+
+    if (!req.user || !req.user._id) {
+      return res.status(401).json({ message: "Unauthorized: User not found in request" });
+    }
+
     const userId = req.user._id;
 
     const { fullName, bio, nativeLanguage, learningLanguage, location } = req.body;
