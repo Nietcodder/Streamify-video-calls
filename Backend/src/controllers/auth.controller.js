@@ -1,4 +1,4 @@
-import { upsertStreamUser} from "../lib/stream.js";
+import { upsertStreamUser,generateStreamToken} from "../lib/stream.js";
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 
@@ -104,11 +104,11 @@ export function logout(req, res) {
 export async function onboard(req, res) {
   try {
 
-    if (!req.user || !req.user._id) {
+    if (!req.user || !req.user.id) {
       return res.status(401).json({ message: "Unauthorized: User not found in request" });
     }
 
-    const userId = req.user._id;
+    const userId = req.user.id;
 
     const { fullName, bio, nativeLanguage, learningLanguage, location } = req.body;
 

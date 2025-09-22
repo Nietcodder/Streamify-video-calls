@@ -43,9 +43,6 @@ const ChatPage = () => {
 
       try {
 
-        //  await axiosInstance.post("/api/chat/upsert-user", { id: authUser._id });
-        //  await axiosInstance.post("/api/chat/upsert-user", { id: targetUserId });
-
         console.log("Initializing stream chat client...");
 
         const client = StreamChat.getInstance(STREAM_API_KEY);
