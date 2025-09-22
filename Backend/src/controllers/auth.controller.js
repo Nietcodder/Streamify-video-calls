@@ -147,7 +147,7 @@ export async function onboard(req, res) {
       console.log("Error updating Stream user during onboarding:", streamError.message);
     }
 
-    const token = streamClient.createToken(updatedUser._id.toString());
+    const token = generateStreamToken(updatedUser._id.toString());
 
 
     res.status(200).json({ success: true, user: updatedUser,token });
